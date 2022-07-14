@@ -28,15 +28,6 @@ class Testsample(unittest.TestCase):
 
         # capture the title of the page
         amazon = self.driver.title
-        path = (r"C:\Users\Admin\OneDrive\Desktop\report.xlsx")
-
-        # access the RowCount method
-        rows = EXCELUTIL.getRowCount(path, "Sheet1")
-        # perform or read the value from excel file and pass to application
-
-        for r in range(2, rows + 1):
-            Actionkeywords = EXCELUTIL.ReadData(path, "Sheet1", r, 1)
-            status = EXCELUTIL.ReadData(path, "Sheet1", r, 2)
 
         # time.sleep(4)
         a =self.driver.find_element(by=By.XPATH, value=" //input[@id='twotabsearchtextbox']")
@@ -62,18 +53,6 @@ class Testsample(unittest.TestCase):
         time.sleep(4)
 
         self.driver.switch_to.alert.dismiss()
-
-        workbook = openpyxl.load_workbook(r"C:\Users\Admin\OneDrive\Desktop\report.xlsx")
-
-        # load the sheet
-        sheet = workbook.active
-
-        for r in range(1, 6):
-            for c in range(1, 2):
-                sheet.cell(row=r, column=c).value = "pass "
-
-        workbook.save(r"C:\Users\Admin\OneDrive\Desktop\report.xlsx")
-
         print("end of file writting")
 
         # time.sleep(4)
